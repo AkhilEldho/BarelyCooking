@@ -10,12 +10,12 @@ namespace Barely_Cooking_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RentingCartController : ControllerBase
+    public class ShoppingCartController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
         private ApiResponse _apiResponse;
 
-        public RentingCartController(ApplicationDbContext context, ImageBlobService imageBlobService)
+        public ShoppingCartController(ApplicationDbContext context)
         {
             _context = context;
             _apiResponse = new ApiResponse();

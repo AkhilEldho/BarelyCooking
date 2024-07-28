@@ -4,6 +4,7 @@ using Barely_Cooking_API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Barely_Cooking_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240728123740_addOrder")]
+    partial class addOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,11 +210,11 @@ namespace Barely_Cooking_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<double>("CartTotal")
+                        .HasColumnType("float");
+
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<double>("OrderTotal")
-                        .HasColumnType("float");
 
                     b.Property<string>("PickupEmail")
                         .IsRequired()

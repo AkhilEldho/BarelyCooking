@@ -1,6 +1,6 @@
 ﻿using Barely_Cooking_API.Data;
-using Barely_Cooking_API.Models;
 using Barely_Cooking_API.Models.DTO;
+using Barely_Cooking_API.Models;
 using Barely_Cooking_API.Services;
 using Barely_Cooking_API.Utility;
 using Microsoft.AspNetCore.Http;
@@ -9,15 +9,15 @@ using System.Net;
 
 namespace Barely_Cooking_API.Controllers
 {
-    [Route("api/Cake")]
-    [ApiController] 
-    public class MenuItemController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CakeController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
         private ApiResponse _apiResponse;
         private readonly ImageBlobService _imageBlobService;
 
-        public MenuItemController(ApplicationDbContext context, ImageBlobService imageBlobService)
+        public CakeController(ApplicationDbContext context, ImageBlobService imageBlobService)
         {
             _context = context;
             _imageBlobService = imageBlobService;
@@ -134,7 +134,7 @@ namespace Barely_Cooking_API.Controllers
                     updateCake.Name = cakeUpdateDTO.Name;
                     updateCake.Category = cakeUpdateDTO.Category;
                     updateCake.Description = cakeUpdateDTO.Description;
-                    updateCake.SpecialTags= cakeUpdateDTO.SpecialTags;
+                    updateCake.SpecialTags = cakeUpdateDTO.SpecialTags;
                     updateCake.Price = cakeUpdateDTO.Price;
 
                     if (updateCake.ImageFile != null && updateCake.ImageFile.Length > 0)

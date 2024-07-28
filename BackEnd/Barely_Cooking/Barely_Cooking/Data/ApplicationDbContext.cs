@@ -15,6 +15,8 @@ namespace Barely_Cooking_API.Data
         public DbSet<Cake> Cakes { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public DbSet<Cart> Carts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
