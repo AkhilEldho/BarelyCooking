@@ -124,7 +124,7 @@ namespace Barely_Cooking_API.Migrations
 
                     b.HasKey("CakeId");
 
-                    b.ToTable("Cakes");
+                    b.ToTable("Cakes", (string)null);
 
                     b.HasData(
                         new
@@ -192,7 +192,7 @@ namespace Barely_Cooking_API.Migrations
 
                     b.HasIndex("ShoppingCartId");
 
-                    b.ToTable("Carts");
+                    b.ToTable("Carts", (string)null);
                 });
 
             modelBuilder.Entity("Barely_Cooking_API.Models.Order", b =>
@@ -240,7 +240,7 @@ namespace Barely_Cooking_API.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("Barely_Cooking_API.Models.OrderDetails", b =>
@@ -273,7 +273,7 @@ namespace Barely_Cooking_API.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetails", (string)null);
                 });
 
             modelBuilder.Entity("Barely_Cooking_API.Models.ShoppingCart", b =>
@@ -290,7 +290,7 @@ namespace Barely_Cooking_API.Migrations
 
                     b.HasKey("ShoppingCartId");
 
-                    b.ToTable("ShoppingCarts");
+                    b.ToTable("ShoppingCarts", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
