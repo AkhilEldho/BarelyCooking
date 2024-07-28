@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Barely_Cooking_API", "Barely_Cooking\Barely_Cooking_API.csproj", "{0A58F3B9-5C9F-4D69-A5D1-2B8D639F99ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A58F3B9-5C9F-4D69-A5D1-2B8D639F99ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A58F3B9-5C9F-4D69-A5D1-2B8D639F99ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A58F3B9-5C9F-4D69-A5D1-2B8D639F99ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A58F3B9-5C9F-4D69-A5D1-2B8D639F99ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B7203E3-1708-470F-9682-0070CEAAD5F5}
+	EndGlobalSection
+EndGlobal
