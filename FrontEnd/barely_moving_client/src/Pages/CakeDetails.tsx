@@ -102,6 +102,31 @@ function CakeDetails() {
         </div>)}
 
     </div>
+              <div className="col-5 ">
+                <button className="btn btn-secondary form-control"
+                onClick={() => naviagte(-1)}
+                >
+                  Back to Home
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="col-5">
+            <img
+              src={data.result?.imageFile}
+              width="100%"
+              style={{ borderRadius: "50%", height:"auto", width:"100%",objectFit:"cover" }}
+              alt="No content"
+            ></img>
+          </div>
+        </div>) : (
+        <div
+          className="d-flex justify-content-center"
+          style={{ width: "100%" }}>
+          <div>Loading ...</div>
+        </div>)}
+
+    </div>
   )
 }
 
