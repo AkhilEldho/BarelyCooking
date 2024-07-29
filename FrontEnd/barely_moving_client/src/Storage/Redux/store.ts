@@ -11,7 +11,7 @@ const store = configureStore({
 
     middleware: (getDefaultMiddleware) => getDefaultMiddleware()
     .concat(cakeApi.middleware)
-    .concat(shoppingCartApi.middleware)
+    .concat(shoppingCartApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
