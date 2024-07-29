@@ -60,10 +60,15 @@ code {
 
 /* MENU ITEMS */
 .fixed-size-image {
-  width: 150px; /* Set the width you want */
-  height: 150px; /* Set the height you want */
-  object-fit: cover; /* Ensure the image covers the area while maintaining aspect ratio */
-  border-radius: 45%; /* Make the image circular */
+  width: 150px;
+  height: 150px;
+  object-fit:cover;
+  border-radius: 45%;
+}
+
+/* Card Styles */
+.custom-box-shadow {
+  box-shadow: 0 1px 7px 0 rgb(0 0 0 / 50%);
 }
 
 .card {
@@ -72,4 +77,37 @@ code {
 
 .card:hover {
   transform: scale(1.05);
+}
+
+/* Special Tags Styles */
+.special-tags {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  outline: none !important;
+  cursor: pointer;
+}
+
+/* Add to Cart Button Styles */
+.add-to-cart {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  outline: none !important;
+  cursor: pointer;
+}
+
+/* Cake Link Styles */
+.cake-link {
+  text-decoration: none;
+  color: darkblue;
+}
+
+/* Small Text Styles */
+.small-text {
+  font-size: 12px;
 }
