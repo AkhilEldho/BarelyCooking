@@ -1,23 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { cakeModel } from '../../../Interface';
 import CakeCard from './CakeCard';
+import { useGetCakesQuery } from '../../../API/cakeApi';
+import { useDispatch } from 'react-redux';
+import { setCake } from '../../../Storage/Redux/cakeSlice';
 
 function CakeList() {
-    const [cakes, setCakes] = useState<cakeModel[]>([]);
+    //const [cakes, setCakes] = useState<cakeModel[]>([]);
+
+    const {data, isLoading} = useGetCakesQuery(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-      fetch("https://barelycookingapi.azurewebsites.net/api/Cake")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setCakes(data.result);
-      })
-    }, []);
+      if(!isLoading){
+        dispatch(setCake(data.result))
+      }
+    }, [isLoading]);
+
+    if(isLoading){
+      return <div>Loading...</div>
+    }
+
 
     return (
         <div className="container row">
-        {cakes.length > 0 && cakes.map((cake, index) => (
-          <CakeCard cake = {cake} key={index} />
+        {data.result.length > 0 && data.result.map((cakes: cakeModel, index:number) => (
+          <CakeCard cake = {cakes} key={index} />
         ))}
         </div>
     )
