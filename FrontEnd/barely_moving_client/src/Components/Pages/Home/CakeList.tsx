@@ -4,6 +4,7 @@ import CakeCard from './CakeCard';
 import { useGetCakesQuery } from '../../../API/cakeApi';
 import { useDispatch } from 'react-redux';
 import { setCake } from '../../../Storage/Redux/cakeSlice';
+import { MainLoader } from '../Shared';
 
 function CakeList() {
     //const [cakes, setCakes] = useState<cakeModel[]>([]);
@@ -18,7 +19,7 @@ function CakeList() {
     }, [isLoading]);
 
     if(isLoading){
-      return <div>Loading...</div>
+      return <MainLoader/>
     }
 
 

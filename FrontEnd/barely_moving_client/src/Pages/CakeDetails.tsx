@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useGetCakeQuery } from '../API/cakeApi';
 import { useUpdateShoppingCartMutation } from '../API/shoppingCartApi';
+import { Loader, MainLoader } from '../Components/Pages/Shared';
 
 //TEST USER: 1b41deca-f2da-4a1e-815d-74d498181ca0
 function CakeDetails() {
   const { cakeId } = useParams();
   const { data, isLoading } = useGetCakeQuery(cakeId);
-  const [isAddingToCart, setIsAddingToCart] = useState<boolean>(false);
+  const [isAddingToCart, setIsAddingToCart] = useState<boolean>(true);
   const[updateShoppingCart] = useUpdateShoppingCartMutation(); 
 
   const navigate = useNavigate();
@@ -26,16 +27,16 @@ function CakeDetails() {
   }
 
   const handleAddToCart = async (cakeId:number) =>{
-    setIsAddingToCart(true);
+    setIsAddingToCart(false);
 
     const response = await updateShoppingCart({
       cakeId:cakeId, 
       quantity:quantityUpdate, 
       userId:'1b41deca-f2da-4a1e-815d-74d498181ca0'
     });
-    console.log(response)
+    //console.log(response)
 
-    setIsAddingToCart(false);
+    setIsAddingToCart(true);
   }
 
   return (
@@ -86,11 +87,17 @@ function CakeDetails() {
             </span>
             <div className="row pt-4">
               <div className="col-5">
+                {!isAddingToCart? (
+                  <button disabled className="btn btn-fail form-control">
+                    <Loader />
+                  </button>
+                ):(
                 <button className="btn btn-success form-control"
                 onClick={() => handleAddToCart(data.result?.cakeId)}
                 >
                   Add to Cart
                 </button>
+                )};
               </div>
               <div className="col-5 ">
                 <button className="btn btn-secondary form-control"
@@ -114,7 +121,7 @@ function CakeDetails() {
         <div
           className="d-flex justify-content-center"
           style={{ width: "100%" }}>
-          <div>Loading ...</div>
+          <MainLoader/>
         </div>
       )}
     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import CakeList from '../Components/Layout/Home/CakeList'
+import CakeList from '../Components/Pages/Home/CakeList'
 
 function Home() {
   return (

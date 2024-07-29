@@ -1,12 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { cakeModel } from '../../../Interface';
+import { useUpdateShoppingCartMutation } from '../../../API/shoppingCartApi';
+import { Loader } from '../Shared';
 
 interface Props {
     cake: cakeModel;
 }
 
 function CakeCard(props: Props) {
+  const [isAddingToCart, setIsAddingToCart] = useState<boolean>(false);
+  const[updateShoppingCart] = useUpdateShoppingCartMutation(); 
+
+  const handleAddToCart = async (cakeId:number) =>{
+    setIsAddingToCart(true);
+
+    const response = await updateShoppingCart({
+      cakeId:cakeId, 
+      quantity:1, 
+      userId:'1b41deca-f2da-4a1e-815d-74d498181ca0'
+    });
+
+    setIsAddingToCart(false);
+  }
+
+
   return (
     <div className="col-md-4 col-12 p-4 d-flex justify-content-center">
       <div className="card custom-box-shadow">
@@ -27,8 +45,20 @@ function CakeCard(props: Props) {
             </i>
           )}
 
-          <i className="bi bi-cart-plus btn btn-outline-danger add-to-cart"></i>
+          {isAddingToCart?(
+            <div style={{
+              position:"absolute",
+              top:"15px",
+              right:"15px"
+            }}>
+              <Loader/>
+          </div>
+          ) :(
 
+          <i className="bi bi-cart-plus btn btn-outline-danger add-to-cart"
+          onClick={() => handleAddToCart(props.cake.cakeId)}
+          ></i>
+        )}
           <div className="text-center">
             <p className="card-title m-0 text-success fs-3">
               <Link to={`/cake/${props.cake.cakeId}`} className="cake-link">
