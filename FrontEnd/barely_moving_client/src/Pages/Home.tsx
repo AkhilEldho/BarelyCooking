@@ -3,8 +3,8 @@ import CakeList from '../Components/Layout/Home/CakeList'
 
 function Home() {
   return (
-    <div>    
-    <CakeList/>
+    <div className="container p-2">
+          <CakeList/>
 </div>
   )
 }
